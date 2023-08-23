@@ -23,3 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# ignores all .md files
+.md
+
+# except for README.md file
+!README.md
