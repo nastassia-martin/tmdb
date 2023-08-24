@@ -1,7 +1,15 @@
 //import React from "react"
+import { useQuery } from "@tanstack/react-query"
 import Card from "react-bootstrap/Card"
+import * as TMBD_API from "../services/themoviedbAPI"
 
 const PopularMovies = () => {
+	const query = useQuery({
+		queryKey: ["movies"],
+		queryFn: TMBD_API.getPopularMovies,
+	})
+
+	console.log(query.data)
 	return (
 		<Card className="bg-dark text-white">
 			<Card.Img src="" alt="" />

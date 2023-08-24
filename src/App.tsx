@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import "./assets/scss/App.scss"
 import HomePage from "./pages/HomePage"
 import Navigation from "./components/Navigation"
-import PopularMovies from "./pages/PopularMovies"
+import PopularMovies from "./pages/PopularMoviesPage"
 
 const App = () => {
 	// const query = useQuery({
