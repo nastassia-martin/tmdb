@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container"
 
 import "./assets/scss/App.scss"
 import HomePage from "./pages/HomePage"
+import Navigation from "./components/Navigation"
 
 const App = () => {
 	// const query = useQuery({
@@ -14,7 +15,7 @@ const App = () => {
 	// console.log(query.data)
 	return (
 		<div id="app">
-			{/* <Navigation /> */}
+			<Navigation />
 			<>
 				<Routes>
 					<Route path="/" element={<HomePage />} />

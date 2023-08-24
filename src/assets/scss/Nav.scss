@@ -1,0 +1,17 @@
+.navbar {
+	background-color: black;
+	border-bottom: 1px solid white;
+}
+.nav {
+	color: fuchsia;
+	font-family: "Tilt Neon", cursive;
+	text-transform: uppercase;
+}
+.nav-items > * {
+	color: fuchsia;
+	font-family: "Tilt Neon", cursive;
+}
+.nav-link:hover,
+.nav:hover {
+	color: white;
+}
