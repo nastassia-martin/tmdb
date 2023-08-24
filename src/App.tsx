@@ -1,11 +1,10 @@
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { Routes, Route } from "react-router-dom"
 
-import Container from "react-bootstrap/Container"
-
 import "./assets/scss/App.scss"
 import HomePage from "./pages/HomePage"
 import Navigation from "./components/Navigation"
+import PopularMovies from "./pages/PopularMovies"
 
 const App = () => {
 	// const query = useQuery({
@@ -19,14 +18,14 @@ const App = () => {
 			<>
 				<Routes>
 					<Route path="/" element={<HomePage />} />
-					<Route path="/genres">
-						{/* /genres */}
-						{/* <Route path="" element={<GenresPage />} /> */}
-
-						{/* /genres/:id */}
-						{/* <Route path=":id" element={<GenrePage />} /> */}
-					</Route>
+					{/* /genres */}
+					{/* <Route path="/genres"> */}
+					{/* <Route path="" element={<GenresPage />} /> */}
+					{/* /genres/:id */}
+					{/* <Route path=":id" element={<GenrePage />} /> */}
+					{/* </Route> */}
 					{/* /movies */}
+					<Route path="/movies/popular" element={<PopularMovies />} />
 					{/* <Route path="/movie/:id" element={<MoviePage />} /> */}
 
 					{/* /people */}
