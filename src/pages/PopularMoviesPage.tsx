@@ -1,30 +1,55 @@
 //import React from "react"
 import { useQuery } from "@tanstack/react-query"
+import { Link } from "react-router-dom"
+
+import Alert from "react-bootstrap/Alert"
 import Card from "react-bootstrap/Card"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+
 import * as TMBD_API from "../services/themoviedbAPI"
 
 const PopularMovies = () => {
-	const query = useQuery({
+	const baseURL = "https://image.tmdb.org/t/p"
+	const width = "/w342"
+	const { data, isError } = useQuery({
 		queryKey: ["movies"],
 		queryFn: TMBD_API.getPopularMovies,
 	})
 
-	console.log(query.data)
 	return (
-		<Card className="bg-dark text-white">
-			<Card.Img src="" alt="" />
-			<Card.ImgOverlay>
-				<Card.Title>MOVIE.title</Card.Title>
-				<Card.Text>
-					MOVIE.overview. This is a wider card with supporting text below as a
-					natural lead-in to additional content. This content is a little bit
-					longer.
-				</Card.Text>
-				<Card.Text>
-					vote average: MOVIE.vote_average, total votes: MOVIE.vote_count
-				</Card.Text>
-			</Card.ImgOverlay>
-		</Card>
+		<>
+			{isError && (
+				<Alert variant='danger'>Oh no, something bad happened?</Alert>
+			)}
+
+			<Container className='p-4'>
+				<Row className='g-4'>
+					{data &&
+						data.results.map((res) => (
+							<Card
+								// as={Link}
+								// to={`/movies/${res.id}`}
+								key={res.id}
+								className='popular-movies'
+							>
+								<Card.Img
+									className='fluid'
+									src={baseURL + width + res.backdrop_path}
+									alt={res.title}
+								/>
+								<Card.ImgOverlay>
+									<Card.Title>{res.title}</Card.Title>
+									<Card.Text>
+										vote average: {res.vote_average}, total votes:
+										{res.vote_count}
+									</Card.Text>
+								</Card.ImgOverlay>
+							</Card>
+						))}
+				</Row>
+			</Container>
+		</>
 	)
 }
 
