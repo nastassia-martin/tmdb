@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import Container from "react-bootstrap/Container"
 
 import "./assets/scss/App.scss"
+import HomePage from "./pages/HomePage"
 
 const App = () => {
 	// const query = useQuery({
@@ -14,9 +15,9 @@ const App = () => {
 	return (
 		<div id="app">
 			{/* <Navigation /> */}
-			<Container>
+			<>
 				<Routes>
-					{/* <Route path="/" element={HomePage} /> */}
+					<Route path="/" element={<HomePage />} />
 					<Route path="/genres">
 						{/* /genres */}
 						{/* <Route path="" element={<GenresPage />} /> */}
@@ -30,8 +31,7 @@ const App = () => {
 					{/* /people */}
 					{/* <Route path="/person/:id" element={<PersonPage />} /> */}
 				</Routes>
-			</Container>
-			<h1>Hello Code Hunter</h1>
+			</>
 			<ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
 		</div>
 	)
