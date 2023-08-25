@@ -5,7 +5,7 @@
  *
  */
 import axios from "axios"
-import { GenericMovieResponse, GenresResponse } from "../types/index.types"
+import { GenericMovieResponse, SingleMovieData } from "../types/index.types"
 
 const BASE_URL = "https://api.themoviedb.org/3"
 const VITE_APP_ACCESS_TOKEN = import.meta.env.VITE_APP_ACCESS_TOKEN
@@ -66,6 +66,14 @@ export const getPopularMovies = () => {
 		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
 		&sort_by=popularity.desc`
 	)
+}
+/**
+ * Get a single movie with credits appended to result
+ * @param movie_id
+ */
+export const getMovieById = (movie_id: number) => {
+	return get<SingleMovieData>(`
+	/movie/${movie_id}?append_to_response=credits&language=en-US`)
 }
 /**
  * @todo: 1 set up req to ´´, movie_id, credits, images,
