@@ -26,7 +26,7 @@ export type GenericMovieData = GenericMovieResource & {
 
 export type SingleMovieData = GenericMovieResource & {
 	budget: number
-	genres: GenresResponse[]
+	genres: Generic[]
 	homepage: string
 	revenue: number
 	runtime: number
@@ -38,9 +38,6 @@ export type Generic = {
 	name: string
 }
 
-export type GenresResponse = {
-	genres: Generic[]
-}
 export type Credits = {
 	cast: Cast[]
 }

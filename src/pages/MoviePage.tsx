@@ -34,6 +34,11 @@ const MoviePage = () => {
 						/>
 					)}
 					<Card.Body>
+						{data.genres.map((genre) => (
+							<Card.Text key={genre.id}>{genre.name}</Card.Text>
+						))}
+						<Card.Text>{}</Card.Text>
+
 						<Card.Text>{data.overview}</Card.Text>
 						{data.credits.cast.slice(0, 5).map((actor) => (
 							<Card.Text key={actor.id}>{actor.name}</Card.Text>
