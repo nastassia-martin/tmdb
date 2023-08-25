@@ -7,15 +7,15 @@
 import axios from "axios"
 import { MovieResponse, GenresResponse } from "../types/index.types"
 
-const base_URL = "https://api.themoviedb.org/3"
-const ACCESS_TOKEN = import.meta.env.ACCESS_TOKEN
+const BASE_URL = "https://api.themoviedb.org/3"
+const VITE_APP_ACCESS_TOKEN = import.meta.env.VITE_APP_ACCESS_TOKEN
 const FAKE_DELAY = 1500
 
 const instance = axios.create({
-	baseURL: base_URL,
+	baseURL: BASE_URL,
 	headers: {
 		accept: "application/json",
-		Authorization: "Bearer" + ACCESS_TOKEN,
+		Authorization: "Bearer " + VITE_APP_ACCESS_TOKEN,
 	},
 })
 

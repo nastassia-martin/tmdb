@@ -1,10 +1,10 @@
 Minimum:
 Explore 10-20 of the latest movies.
 Discover the most popular movies.
-See the top list of best movies
+[x]See the top list of best movies
 Browse movies by genre.
-Dive deep into each movie's details.
-Get to know the stars of the film.
+[]Dive deep into each movie's details.
+Get to know the stars of the film. -> person/id/?append_to_response=images%2Ccredits
 
 # Routes
 

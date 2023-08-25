@@ -5,6 +5,7 @@ import "./assets/scss/App.scss"
 import HomePage from "./pages/HomePage"
 import Navigation from "./components/Navigation"
 import PopularMovies from "./pages/PopularMoviesPage"
+import MoviePage from "./pages/MoviePage"
 
 const App = () => {
 	// const query = useQuery({
@@ -13,11 +14,11 @@ const App = () => {
 	// })
 	// console.log(query.data)
 	return (
-		<div id="app">
+		<div id='app'>
 			<Navigation />
 			<>
 				<Routes>
-					<Route path="/" element={<HomePage />} />
+					<Route path='/' element={<HomePage />} />
 					{/* /genres */}
 					{/* <Route path="/genres"> */}
 					{/* <Route path="" element={<GenresPage />} /> */}
@@ -25,14 +26,14 @@ const App = () => {
 					{/* <Route path=":id" element={<GenrePage />} /> */}
 					{/* </Route> */}
 					{/* /movies */}
-					<Route path="/movies/popular" element={<PopularMovies />} />
-					{/* <Route path="/movie/:id" element={<MoviePage />} /> */}
+					<Route path='/movies/popular' element={<PopularMovies />} />
+					<Route path='/movies/:id' element={<MoviePage />} />
 
 					{/* /people */}
 					{/* <Route path="/person/:id" element={<PersonPage />} /> */}
 				</Routes>
 			</>
-			<ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+			<ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
 		</div>
 	)
 }

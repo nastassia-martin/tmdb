@@ -28,8 +28,8 @@ const PopularMovies = () => {
 					{data &&
 						data.results.map((res) => (
 							<Card
-								// as={Link}
-								// to={`/movies/${res.id}`}
+								as={Link}
+								to={`/movies/${res.id}`}
 								key={res.id}
 								className='popular-movies'
 							>
