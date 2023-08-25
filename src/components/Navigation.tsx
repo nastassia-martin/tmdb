@@ -5,23 +5,26 @@ import { Link, NavLink } from "react-router-dom"
 
 const Navigation = () => {
 	return (
-		<Navbar expand="md">
+		<Navbar expand='md'>
 			<Container>
-				<Navbar.Brand className="nav" as={Link} to="/">
+				<Navbar.Brand className='nav' as={Link} to='/'>
 					CodeHunter 2023
 				</Navbar.Brand>
 
-				<Navbar.Toggle aria-controls="basic-navbar-nav" />
-				<Navbar.Collapse id="basic-navbar-nav">
-					<Nav className="ms-auto nav-items">
-						<Nav.Link as={NavLink} to="/genres">
+				<Navbar.Toggle aria-controls='basic-navbar-nav' />
+				<Navbar.Collapse id='basic-navbar-nav'>
+					<Nav className='ms-auto nav-items'>
+						<Nav.Link as={NavLink} to='/genres'>
 							Genres
 						</Nav.Link>
-						<Nav.Link as={NavLink} end to="/movies/popular">
-							Popular Movies
+						<Nav.Link as={NavLink} end to='/movies/top-listed'>
+							Top-Listed Movies
 						</Nav.Link>
-						<Nav.Link as={NavLink} to="/movies/latest">
-							Latest Releases
+						<Nav.Link as={NavLink} to='/movies/latest'>
+							Latest Releaseses
+						</Nav.Link>
+						<Nav.Link as={NavLink} to='/movies/popular'>
+							Popular Movies
 						</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>

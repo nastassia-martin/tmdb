@@ -4,15 +4,11 @@ import { Routes, Route } from "react-router-dom"
 import "./assets/scss/App.scss"
 import HomePage from "./pages/HomePage"
 import Navigation from "./components/Navigation"
-import PopularMovies from "./pages/PopularMoviesPage"
+import TopMoviesPage from "./pages/TopMoviesPage"
 import MoviePage from "./pages/MoviePage"
+import LatestMovieReleasesPage from "./pages/LatestMovieReleasesPage"
 
 const App = () => {
-	// const query = useQuery({
-	// 	queryKey: ["genres"],
-	// 	queryFn: TMBD_API.getAllGenres,
-	// })
-	// console.log(query.data)
 	return (
 		<div id='app'>
 			<Navigation />
@@ -26,9 +22,10 @@ const App = () => {
 					{/* <Route path=":id" element={<GenrePage />} /> */}
 					{/* </Route> */}
 					{/* /movies */}
-					<Route path='/movies/popular' element={<PopularMovies />} />
+					<Route path='/movies/top-listed' element={<TopMoviesPage />} />
+					<Route path='/movies/latest' element={<LatestMovieReleasesPage />} />
+					<Route path='/movies/popular' element={<TopMoviesPage />} />
 					<Route path='/movies/:id' element={<MoviePage />} />
-
 					{/* /people */}
 					{/* <Route path="/person/:id" element={<PersonPage />} /> */}
 				</Routes>

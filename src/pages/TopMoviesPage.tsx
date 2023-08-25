@@ -1,4 +1,3 @@
-//import React from "react"
 import { useQuery } from "@tanstack/react-query"
 import { Link } from "react-router-dom"
 
@@ -6,15 +5,16 @@ import Alert from "react-bootstrap/Alert"
 import Card from "react-bootstrap/Card"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
+import fallback from "../assets/images/popcorn.jpg"
 
-import * as TMBD_API from "../services/themoviedbAPI"
+import { getPopularMovies } from "../services/themoviedbAPI"
 
-const PopularMovies = () => {
-	const baseURL = "https://image.tmdb.org/t/p"
+const TopMoviesPage = () => {
+	const imageURL = "https://image.tmdb.org/t/p"
 	const width = "/w342"
 	const { data, isError } = useQuery({
-		queryKey: ["movies"],
-		queryFn: TMBD_API.getPopularMovies,
+		queryKey: ["top-movies"],
+		queryFn: getPopularMovies,
 	})
 
 	return (
@@ -31,13 +31,17 @@ const PopularMovies = () => {
 								as={Link}
 								to={`/movies/${res.id}`}
 								key={res.id}
-								className='popular-movies'
+								className='movies'
 							>
-								<Card.Img
-									className='fluid'
-									src={baseURL + width + res.backdrop_path}
-									alt={res.title}
-								/>
+								{res.backdrop_path === null ? (
+									<Card.Img className='fluid' src={fallback} alt={res.title} />
+								) : (
+									<Card.Img
+										className='fluid'
+										src={imageURL + width + res.backdrop_path}
+										alt={res.title}
+									/>
+								)}
 								<Card.ImgOverlay>
 									<Card.Title>{res.title}</Card.Title>
 									<Card.Text>
@@ -53,4 +57,4 @@ const PopularMovies = () => {
 	)
 }
 
-export default PopularMovies
+export default TopMoviesPage

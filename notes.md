@@ -1,6 +1,6 @@
 Minimum:
-Explore 10-20 of the latest movies.
-Discover the most popular movies.
+[x]Explore 10-20 of the latest movies.
+[]Discover the most popular movies.
 [x]See the top list of best movies
 Browse movies by genre.
 []Dive deep into each movie's details.

@@ -4,6 +4,14 @@
 
 [x] Set up routes
 
-1. Set up home page (background pic, genres button, hard code top list/ most pop/ latest release)
+[x] Set up home page (background pic, genres button, hard code top list/ most pop/ latest release)
+[] movie/:id
+[] movie(single) type
+[]. Set up generic pages
 
-2. Set up generic pages
+TODO 25/08/
+
+- set video to false
+- set up common params in varaible, eg video=false,
+- movie page
+- latest release page

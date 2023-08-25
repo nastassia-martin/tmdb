@@ -50,6 +50,25 @@ export const getAllGenres = () => {
  */
 export const getPopularMovies = () => {
 	return get<MovieResponse>(
-		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&vote_count.gte=10000`
+		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
+		&sort_by=vote_average.desc&vote_count.gte=10000`
 	)
 }
+export const getLatestMovies = () => {
+	return get<MovieResponse>(
+		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
+		&primary_release_date.lte=2023-08-25&region=us&sort_by=primary_release_date.desc`
+	)
+}
+/**
+ * @todo: 1 set up req to ´´, movie_id, credits, images,
+ * @todo: VG set up req to ´´ recommendations
+ * @todo: movie res type
+ * Get popular movies
+ * params used: page, movie_id,
+ * append_to_response: credits, images
+ * @returns Promise
+ */
+// export const getMovie = (movie_id: string) => {
+// 	return get<>(`https://api.themoviedb.org/3/movie/${movie_id}`)
+// }
