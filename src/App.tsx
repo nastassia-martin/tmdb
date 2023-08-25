@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation"
 import TopMoviesPage from "./pages/TopMoviesPage"
 import MoviePage from "./pages/MoviePage"
 import LatestMovieReleasesPage from "./pages/LatestMovieReleasesPage"
+import PopularMoviesPage from "./pages/PopularMoviesPage"
 
 const App = () => {
 	return (
@@ -22,9 +23,9 @@ const App = () => {
 					{/* <Route path=":id" element={<GenrePage />} /> */}
 					{/* </Route> */}
 					{/* /movies */}
-					<Route path='/movies/top-listed' element={<TopMoviesPage />} />
+					<Route path='/movies/popular' element={<PopularMoviesPage />} />
 					<Route path='/movies/latest' element={<LatestMovieReleasesPage />} />
-					<Route path='/movies/popular' element={<TopMoviesPage />} />
+					<Route path='/movies/top-listed' element={<TopMoviesPage />} />
 					<Route path='/movies/:id' element={<MoviePage />} />
 					{/* /people */}
 					{/* <Route path="/person/:id" element={<PersonPage />} /> */}

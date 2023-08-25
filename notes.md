@@ -1,10 +1,13 @@
-Minimum:
-[x]Explore 10-20 of the latest movies.
-[]Discover the most popular movies.
-[x]See the top list of best movies
-Browse movies by genre.
-[]Dive deep into each movie's details.
-Get to know the stars of the film. -> person/id/?append_to_response=images%2Ccredits
+G:
+[x] Explore 10-20 of the latest movies.
+[x] Discover 10-20 of the most popular movies.
+[x] See 10-20 of the top list of best movies
+[] Browse movies by genre.
+[] Click on film & (i) see detailed info about the film, (ii) see actors in the film
+[] Click on actor & (i) see detailed info about the actor, (ii) see what films the actor has been in
+append_to_response=images%2Ccredits
+
+VG:
 
 # Routes
 

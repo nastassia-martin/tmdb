@@ -14,7 +14,7 @@ const LatestMovieReleasesPage = () => {
 	const width = "/w342"
 
 	const { data, isError } = useQuery({
-		queryKey: ["latest-movies"],
+		queryKey: ["movies", "latest-movies"],
 		queryFn: getLatestMovies,
 	})
 	return (

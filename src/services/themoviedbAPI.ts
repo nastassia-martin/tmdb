@@ -5,7 +5,7 @@
  *
  */
 import axios from "axios"
-import { MovieResponse, GenresResponse } from "../types/index.types"
+import { GenericMovieResponse, GenresResponse } from "../types/index.types"
 
 const BASE_URL = "https://api.themoviedb.org/3"
 const VITE_APP_ACCESS_TOKEN = import.meta.env.VITE_APP_ACCESS_TOKEN
@@ -40,7 +40,7 @@ const get = async <T>(endpoint: string) => {
  */
 
 export const getAllGenres = () => {
-	return get<GenresResponse>(`/genre/movie/list?language=en`)
+	return get<GenericMovieResponse>(`/genre/movie/list?language=en`)
 }
 
 /**
@@ -48,16 +48,23 @@ export const getAllGenres = () => {
  * params used: page
  * @returns Promise
  */
-export const getPopularMovies = () => {
-	return get<MovieResponse>(
+export const getTopListedMovies = () => {
+	return get<GenericMovieResponse>(
 		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
 		&sort_by=vote_average.desc&vote_count.gte=10000`
 	)
 }
 export const getLatestMovies = () => {
-	return get<MovieResponse>(
+	return get<GenericMovieResponse>(
 		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
 		&primary_release_date.lte=2023-08-25&region=us&sort_by=primary_release_date.desc`
+	)
+}
+
+export const getPopularMovies = () => {
+	return get<GenericMovieResponse>(
+		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
+		&sort_by=popularity.desc`
 	)
 }
 /**

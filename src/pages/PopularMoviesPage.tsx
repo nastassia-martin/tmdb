@@ -5,18 +5,18 @@ import Alert from "react-bootstrap/Alert"
 import Card from "react-bootstrap/Card"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
+
+import { getPopularMovies } from "../services/themoviedbAPI"
 import fallback from "../assets/images/popcorn.jpg"
 
-import { getTopListedMovies } from "../services/themoviedbAPI"
-
-const TopMoviesPage = () => {
+const PopularMoviesPage = () => {
 	const imageURL = "https://image.tmdb.org/t/p"
 	const width = "/w342"
-	const { data, isError } = useQuery({
-		queryKey: ["movies", "top-listed-movies"],
-		queryFn: getTopListedMovies,
-	})
 
+	const { data, isError } = useQuery({
+		queryKey: ["movies", "popular-movies"],
+		queryFn: getPopularMovies,
+	})
 	return (
 		<>
 			{isError && (
@@ -42,6 +42,7 @@ const TopMoviesPage = () => {
 										alt={res.title}
 									/>
 								)}
+
 								<Card.ImgOverlay>
 									<Card.Title>{res.title}</Card.Title>
 									<Card.Text>
@@ -57,4 +58,4 @@ const TopMoviesPage = () => {
 	)
 }
 
-export default TopMoviesPage
+export default PopularMoviesPage

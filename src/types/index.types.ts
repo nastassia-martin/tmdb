@@ -1,16 +1,13 @@
-export type Generic = {
-	id: number
-	name: string
+export type GenericMovieResponse = {
+	page: number
+	results: GenericMovieData[]
+	total_pages: number
+	total_results: number
 }
 
-export type GenresResponse = {
-	genres: Generic[]
-}
-
-export type MovieData = {
+export type GenericMovieResource = {
 	adult: boolean
 	backdrop_path: string | null
-	genre_ids: number[]
 	id: number
 	original_language: string
 	original_title: string
@@ -19,13 +16,46 @@ export type MovieData = {
 	poster_path: string | null
 	release_date: string
 	title: string
-	video: boolean
 	vote_average: number
 	vote_count: number
 }
-export type MovieResponse = {
-	page: number
-	results: MovieData[]
-	total_pages: number
-	total_results: number
+
+export type GenericMovieData = GenericMovieResource & {
+	genre_ids: number[]
+}
+
+export type SingleMovieData = GenericMovieResource & {
+	budget: number
+	genres: GenresResponse[]
+	homepage: string
+	revenue: number
+	runtime: number
+	tagline: string
+	credits: Credits
+}
+export type Generic = {
+	id: number
+	name: string
+}
+
+export type GenresResponse = {
+	genres: Generic[]
+}
+export type Credits = {
+	cast: Cast[]
+}
+
+export type Cast = {
+	adult: boolean
+	gender: number
+	id: number
+	known_for_department: string
+	name: string
+	//original_name: string
+	//popularity: number
+	profile_path: string | null
+	cast_id: number
+	character: string
+	credit_id: string
+	//order: number
 }
