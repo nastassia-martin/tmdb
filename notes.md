@@ -3,7 +3,7 @@ G:
 [x] Discover 10-20 of the most popular movies.
 [x] See 10-20 of the top list of best movies
 [] Browse movies by genre.
-[] Click on film & (i) see detailed info about the film, (ii) see actors in the film
+[x] Click on film & (i) see detailed info about the film, (ii) see actors in the film
 [] Click on actor & (i) see detailed info about the actor, (ii) see what films the actor has been in
 append_to_response=images%2Ccredits
 

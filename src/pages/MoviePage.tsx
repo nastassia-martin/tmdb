@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 // import Alert from "react-bootstrap/Alert"
 import Card from "react-bootstrap/Card"
@@ -41,7 +41,9 @@ const MoviePage = () => {
 
 						<Card.Text>{data.overview}</Card.Text>
 						{data.credits.cast.slice(0, 5).map((actor) => (
-							<Card.Text key={actor.id}>{actor.name}</Card.Text>
+							<Card.Text key={actor.id} as={Link} to={`/people/${actor.id}`}>
+								{actor.name}
+							</Card.Text>
 						))}
 						<Card.Text>{data.runtime} minutes</Card.Text>
 						<Card.Text>{data.vote_average.toFixed(1)} stars</Card.Text>

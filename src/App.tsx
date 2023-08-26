@@ -8,6 +8,7 @@ import TopMoviesPage from "./pages/TopMoviesPage"
 import MoviePage from "./pages/MoviePage"
 import LatestMovieReleasesPage from "./pages/LatestMovieReleasesPage"
 import PopularMoviesPage from "./pages/PopularMoviesPage"
+import PersonPage from "./pages/PersonPage"
 
 const App = () => {
 	return (
@@ -28,7 +29,7 @@ const App = () => {
 					<Route path='/movies/top-listed' element={<TopMoviesPage />} />
 					<Route path='/movies/:id' element={<MoviePage />} />
 					{/* /people */}
-					{/* <Route path="/person/:id" element={<PersonPage />} /> */}
+					<Route path='/people/:id' element={<PersonPage />} />
 				</Routes>
 			</>
 			<ReactQueryDevtools initialIsOpen={false} position='bottom-right' />

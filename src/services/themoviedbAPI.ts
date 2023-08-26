@@ -5,7 +5,11 @@
  *
  */
 import axios from "axios"
-import { GenericMovieResponse, SingleMovieData } from "../types/index.types"
+import {
+	GenericMovieResponse,
+	SingleMovieData,
+	PersonData,
+} from "../types/index.types"
 
 const BASE_URL = "https://api.themoviedb.org/3"
 const VITE_APP_ACCESS_TOKEN = import.meta.env.VITE_APP_ACCESS_TOKEN
@@ -74,6 +78,14 @@ export const getPopularMovies = () => {
 export const getMovieById = (movie_id: number) => {
 	return get<SingleMovieData>(`
 	/movie/${movie_id}?append_to_response=credits&language=en-US`)
+}
+/**
+ * Get a single peroson with movies appended to result
+ * @param person_id
+ */
+export const getPersonById = (person_id: number) => {
+	return get<PersonData>(`
+	/person/${person_id}?append_to_response=credits&language=en-US`)
 }
 /**
  * @todo: 1 set up req to ´´, movie_id, credits, images,
