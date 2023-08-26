@@ -9,6 +9,7 @@ import {
 	GenericMovieResponse,
 	SingleMovieData,
 	PersonData,
+	GenresData,
 } from "../types/index.types"
 
 const BASE_URL = "https://api.themoviedb.org/3"
@@ -44,7 +45,7 @@ const get = async <T>(endpoint: string) => {
  */
 
 export const getAllGenres = () => {
-	return get<GenericMovieResponse>(`/genre/movie/list?language=en`)
+	return get<GenresData>(`/genre/movie/list?language=en`)
 }
 
 /**

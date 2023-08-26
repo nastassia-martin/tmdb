@@ -37,7 +37,9 @@ export type Generic = {
 	id: number
 	name: string
 }
-
+export type GenresData = {
+	genres: Generic[]
+}
 export type Credits = {
 	cast: Cast[]
 }

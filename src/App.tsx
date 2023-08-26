@@ -9,6 +9,7 @@ import MoviePage from "./pages/MoviePage"
 import LatestMovieReleasesPage from "./pages/LatestMovieReleasesPage"
 import PopularMoviesPage from "./pages/PopularMoviesPage"
 import PersonPage from "./pages/PersonPage"
+import GenresPage from "./pages/GenresPage"
 
 const App = () => {
 	return (
@@ -18,11 +19,11 @@ const App = () => {
 				<Routes>
 					<Route path='/' element={<HomePage />} />
 					{/* /genres */}
-					{/* <Route path="/genres"> */}
-					{/* <Route path="" element={<GenresPage />} /> */}
-					{/* /genres/:id */}
-					{/* <Route path=":id" element={<GenrePage />} /> */}
-					{/* </Route> */}
+					<Route path='/genres'>
+						<Route path='' element={<GenresPage />} />
+						{/* /genres/:id */}
+						{/* <Route path=":id" element={<GenrePage />} /> */}
+					</Route>
 					{/* /movies */}
 					<Route path='/movies/popular' element={<PopularMoviesPage />} />
 					<Route path='/movies/latest' element={<LatestMovieReleasesPage />} />
