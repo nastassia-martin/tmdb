@@ -47,6 +47,15 @@ const get = async <T>(endpoint: string) => {
 export const getAllGenres = () => {
 	return get<GenresData>(`/genre/movie/list?language=en`)
 }
+/**
+ * Get movies of one genre
+ */
+export const getGenreById = (genre_id: number, page: number) => {
+	return get<GenericMovieResponse>(
+		`discover/movie?include_adult=false&include_video=false&language=en-US
+		&page=${page}&sort_by=popularity.desc&with_genres=${genre_id}`
+	)
+}
 
 /**
  * Get popular movies

@@ -42,7 +42,6 @@ const LatestMovieReleasesPage = () => {
 										alt={res.title}
 									/>
 								)}
-
 								<Card.ImgOverlay>
 									<Card.Title>{res.title}</Card.Title>
 									<Card.Text>

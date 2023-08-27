@@ -10,6 +10,7 @@ import LatestMovieReleasesPage from "./pages/LatestMovieReleasesPage"
 import PopularMoviesPage from "./pages/PopularMoviesPage"
 import PersonPage from "./pages/PersonPage"
 import GenresPage from "./pages/GenresPage"
+import GenrePage from "./pages/GenrePage"
 
 const App = () => {
 	return (
@@ -22,7 +23,7 @@ const App = () => {
 					<Route path='/genres'>
 						<Route path='' element={<GenresPage />} />
 						{/* /genres/:id */}
-						{/* <Route path=":id" element={<GenrePage />} /> */}
+						<Route path=':id' element={<GenrePage />} />
 					</Route>
 					{/* /movies */}
 					<Route path='/movies/popular' element={<PopularMoviesPage />} />
