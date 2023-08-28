@@ -16,9 +16,9 @@ interface IProps {
 const Movie: React.FC<IProps> = ({ data }) => {
 	const imageURL = "https://image.tmdb.org/t/p/w300"
 	return (
-		<Container className='p-3 movie-container'>
+		<Container className='p-3 resource-container'>
 			<h2>{data.title}</h2>
-			<Card className='movie-card-container mb-2'>
+			<Card className='resource-card-container mb-2'>
 				{data.poster_path === null ? (
 					<Card.Img className='fluid' src={fallback} alt={data.title} />
 				) : (
@@ -29,10 +29,10 @@ const Movie: React.FC<IProps> = ({ data }) => {
 					/>
 				)}
 				<Card.Body>
-					<Card.Text className='movie-card-body'>{data.overview}</Card.Text>
+					<Card.Text className='resource-card-body'>{data.overview}</Card.Text>
 
-					<Card.Body className='movie-card-body-cast'>
-						Starring:
+					<Card.Body className='resource-card-body-cast'>
+						<Card.Text>Starring:</Card.Text>
 						{data.credits.cast.slice(0, 5).map((actor) => (
 							<Card.Text
 								className='anchor'
@@ -45,10 +45,10 @@ const Movie: React.FC<IProps> = ({ data }) => {
 						))}
 					</Card.Body>
 
-					<Card.Text className='movie-card-body'>
+					<Card.Text className='resource-card-body'>
 						Runtime: {data.runtime} minutes
 					</Card.Text>
-					<Card.Text className='movie-card-body'>
+					<Card.Text className='resource-card-body'>
 						Communnity rating:&nbsp;{data.vote_average.toFixed(1)}&nbsp;
 						<span>
 							<FontAwesomeIcon icon={faStar} style={{ color: "#ff40ff" }} />
@@ -56,7 +56,7 @@ const Movie: React.FC<IProps> = ({ data }) => {
 					</Card.Text>
 					{data.genres.map((genre) => (
 						<Card.Text
-							className='movie-card-body'
+							className='resource-card-body'
 							key={genre.id}
 							// as={Link}
 							// to={`/genre/${genre.id`}
