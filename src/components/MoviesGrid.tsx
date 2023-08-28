@@ -11,12 +11,13 @@ import React from "react"
 
 interface IProps {
 	data: GenericMovieResponse
+	title: string
 }
-const MoviesGrid: React.FC<IProps> = ({ data }) => {
+const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 	const imageURL = "https://image.tmdb.org/t/p/w300"
 	return (
 		<>
-			<h2 className='container'>Popular Movies out now</h2>
+			<h2 className='container'>{title}</h2>
 			<Container className='movie-container'>
 				{data.results.map((result) => (
 					<Card
