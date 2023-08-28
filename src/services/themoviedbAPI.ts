@@ -58,8 +58,8 @@ export const getGenreById = (genre_id: number, page: number) => {
 }
 
 /**
- * Get popular movies
- * params used: page
+ * Get Top Listed movies
+ * params used: page, sort_by,
  * @returns Promise
  */
 export const getTopListedMovies = () => {
@@ -68,13 +68,20 @@ export const getTopListedMovies = () => {
 		&sort_by=vote_average.desc&vote_count.gte=10000`
 	)
 }
+/**
+ * Get Latest movies
+ * @returns Promise
+ */
 export const getLatestMovies = () => {
 	return get<GenericMovieResponse>(
-		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
-		&primary_release_date.lte=2023-08-25&region=us&sort_by=primary_release_date.desc`
+		`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`
 	)
 }
-
+/**
+ * Get popular movies
+ * params used: page, sort_by,
+ * @returns Promise
+ */
 export const getPopularMovies = () => {
 	return get<GenericMovieResponse>(
 		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
@@ -106,6 +113,4 @@ export const getPersonById = (person_id: number) => {
  * append_to_response: credits, images
  * @returns Promise
  */
-// export const getMovie = (movie_id: string) => {
-// 	return get<>(`https://api.themoviedb.org/3/movie/${movie_id}`)
 // }
