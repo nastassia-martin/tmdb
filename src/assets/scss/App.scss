@@ -30,6 +30,12 @@ h2 {
 	font-family: "Lato", sans-serif;
 	text-transform: uppercase;
 }
+.loading-container {
+	padding: 3rem;
+	display: flex;
+	justify-content: center;
+	justify-self: center;
+}
 @import "./HomePage.scss";
 @import "./Nav.scss";
 @import "./Movie.scss";

@@ -5,13 +5,16 @@
 [x] Set up routes
 
 [x] Set up home page (background pic, genres button, hard code top list/ most pop/ latest release)
-[] movie/:id
-[] movie(single) type
-[]. Set up generic pages
+[x] movie/:id
+[x] movie(single) type
+[x] Set up generic pages
 
-TODO 25/08/
-
-- set video to false
-- set up common params in varaible, eg video=false,
-- movie page
-- latest release page
+Todo 28/8
+[x] back to prev page button
+[x] make a component that dispays /movies
+[x] make a component that displays a /movies/:id
+[x] make a component that displays a /person/:id
+[x] display movie component in genre
+[] handle loading state
+[] handle error state
+[x] update imageurl path to ...https://image.tmdb.org/t/p/w300/{id}
