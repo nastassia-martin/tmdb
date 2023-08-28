@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card"
 import { GenericMovieResponse } from "../types/index.types"
 import React from "react"
+import PreviousPage from "./PreviousPage"
 
 interface IProps {
 	data: GenericMovieResponse
@@ -20,12 +21,7 @@ const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 			<h2 className='container'>{title}</h2>
 			<Container className='movie-container'>
 				{data.results.map((result) => (
-					<Card
-						as={Link}
-						to={`/movies/${result.id}`}
-						key={result.id}
-						className='movies'
-					>
+					<Card as={Link} to={`/movies/${result.id}`} key={result.id}>
 						{result.backdrop_path === null ? (
 							<Card.Img
 								className='movie-fallback-img'
@@ -54,6 +50,7 @@ const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 						</Card.Body>
 					</Card>
 				))}
+				<PreviousPage />
 			</Container>
 		</>
 	)

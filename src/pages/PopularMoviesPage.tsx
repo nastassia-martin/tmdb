@@ -15,7 +15,7 @@ const PopularMoviesPage = () => {
 				<Alert variant='danger'>Oh no, something bad happened?</Alert>
 			)}
 
-			{data && <MoviesGrid title={"Popular Movies out Now"} data={data} />}
+			{data && <MoviesGrid title={"Popular Releases"} data={data} />}
 		</>
 	)
 }

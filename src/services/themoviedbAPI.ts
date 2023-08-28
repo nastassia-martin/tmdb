@@ -58,7 +58,7 @@ export const getGenreById = (genre_id: number, page: number) => {
 }
 
 /**
- * Get Top Listed movies
+ * Get Top Listed	 movies
  * params used: page, sort_by,
  * @returns Promise
  */
