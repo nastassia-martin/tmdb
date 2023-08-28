@@ -1,30 +1,15 @@
 import { useQuery } from "@tanstack/react-query"
-import { Link } from "react-router-dom"
-
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
 
 import { getAllGenres } from "../services/themoviedbAPI"
-import { ListGroup } from "react-bootstrap"
+import GenreList from "../components/GenreList"
+
 const GenresPage = () => {
-	const { data, isError } = useQuery({
+	const { data } = useQuery({
 		queryKey: ["genres"],
 		queryFn: getAllGenres,
 	})
-	console.log()
-	return (
-		<Container>
-			{data && (
-				<ListGroup>
-					{data.genres.map((genre) => (
-						<ListGroup.Item key={genre.id} as={Link} to={`/genres/${genre.id}`}>
-							{genre.name}
-						</ListGroup.Item>
-					))}
-				</ListGroup>
-			)}
-		</Container>
-	)
+
+	return <>{data && <GenreList data={data} />}</>
 }
 
 export default GenresPage
