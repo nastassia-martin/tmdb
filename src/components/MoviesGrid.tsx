@@ -22,7 +22,12 @@ const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 			<h2 className='container'>{title}</h2>
 			<Container className='movies-container'>
 				{data.results.map((result) => (
-					<Card as={Link} to={`/movies/${result.id}`} key={result.id}>
+					<Card
+						className='movie-card-anchor'
+						as={Link}
+						to={`/movies/${result.id}`}
+						key={result.id}
+					>
 						{result.backdrop_path === null ? (
 							<Card.Img
 								className='movies-fallback-img'

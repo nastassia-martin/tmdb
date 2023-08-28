@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import Container from "react-bootstrap/Container"
 import ListGroup from "react-bootstrap/ListGroup"
 import { GenresData } from "../types/index.types"
+import PreviousPage from "./PreviousPage"
 
 interface IProps {
 	data: GenresData
@@ -24,6 +25,7 @@ const GenreList: React.FC<IProps> = ({ data }) => {
 					</ListGroup.Item>
 				))}
 			</ListGroup>
+			<PreviousPage />
 		</Container>
 	)
 }
