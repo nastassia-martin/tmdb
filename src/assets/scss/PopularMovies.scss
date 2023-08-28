@@ -1,20 +1,21 @@
-.movies > * {
+.movie-container {
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 15px;
+}
+.movie-card-body-container {
+	padding: 0.5rem;
+}
+.movie-card-body-title {
+	font-size: 1rem;
 	font-family: "Tilt Neon", cursive;
-	color: fuchsia;
 	text-transform: uppercase;
 }
-.movies {
-	background-color: black;
+.class-card-body-rating {
+	margin-right: 8px;
 }
-.movies h5 {
-	font-size: 2rem;
-}
-.movies > img {
-	//max-height: 350px;
-	height: auto;
-	border: 1px solid fuchsia;
-}
-.movies p {
-	position: absolute;
-	bottom: 0;
+.movie-fallback-img {
+	aspect-ratio: 1.8;
+	object-fit: cover;
 }

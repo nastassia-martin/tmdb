@@ -9,7 +9,18 @@ body {
 #App {
 	min-height: 100vh;
 }
-
+h2 {
+	font-family: "Tilt Neon", cursive;
+	color: fuchsia;
+	text-shadow: 0 0 7px fuchsia, 0 0 10px fuchsia, 0 0 21px fuchsia,
+		0 0 42px rgb(247, 173, 247), 0 0 82px rgb(247, 173, 247),
+		0 0 92px rgb(247, 173, 247), 0 0 102px rgb(247, 173, 247);
+	margin: 1rem 0;
+	padding: 0.4em;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	text-align: center;
+}
 a {
 	text-decoration: none;
 }
