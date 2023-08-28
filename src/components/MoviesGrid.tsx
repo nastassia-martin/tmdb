@@ -1,3 +1,4 @@
+import React from "react"
 import { Link } from "react-router-dom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -7,7 +8,7 @@ import fallback from "../assets/images/popcorn.jpg"
 import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card"
 import { GenericMovieResponse } from "../types/index.types"
-import React from "react"
+
 import PreviousPage from "./PreviousPage"
 
 interface IProps {
@@ -19,12 +20,12 @@ const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 	return (
 		<>
 			<h2 className='container'>{title}</h2>
-			<Container className='movie-container'>
+			<Container className='movies-container'>
 				{data.results.map((result) => (
 					<Card as={Link} to={`/movies/${result.id}`} key={result.id}>
 						{result.backdrop_path === null ? (
 							<Card.Img
-								className='movie-fallback-img'
+								className='movies-fallback-img'
 								src={fallback}
 								alt={result.title}
 							/>
@@ -35,12 +36,12 @@ const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 								alt={result.title}
 							/>
 						)}
-						<Card.Body className='movie-card-body-container'>
-							<Card.Title className='movie-card-body-title'>
+						<Card.Body className='movies-card-body-container'>
+							<Card.Title className='movies-card-body-title'>
 								{result.title}
 							</Card.Title>
-							<span className='class-card-body-rating'>
-								Communnity rating:&nbsp;&nbsp;{result.vote_average}
+							<span className='movies-card-body-rating'>
+								Communnity rating:&nbsp;{result.vote_average}
 								&nbsp;
 							</span>
 							<span>

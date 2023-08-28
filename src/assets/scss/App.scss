@@ -21,8 +21,9 @@ h2 {
 	text-transform: uppercase;
 	text-align: center;
 }
-a {
+.anchor {
 	text-decoration: none;
+	color: fuchsia;
 }
 
 .nav-back {
@@ -31,4 +32,5 @@ a {
 }
 @import "./HomePage.scss";
 @import "./Nav.scss";
-@import "./PopularMovies.scss";
+@import "./Movie.scss";
+@import "./Movies.scss";

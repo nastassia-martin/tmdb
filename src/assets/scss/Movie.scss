@@ -1,0 +1,31 @@
+.movie-container {
+	height: 100vh;
+}
+.movie-card-container {
+	display: flex;
+	flex-direction: column;
+	border: none;
+}
+.movie-card-title {
+	font-family: "Tilt Neon", cursive;
+}
+.movie-card-body {
+	font-family: "Lato", sans-serif;
+}
+.movie-card-body-cast {
+	padding: 0;
+	margin-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.anchor {
+	margin-top: 0.5rem;
+}
+
+@media (min-width: 500px) {
+	.movie-card-container {
+		display: flex;
+		flex-direction: row;
+	}
+}

@@ -1,21 +1,21 @@
-.movie-container {
+.movies-container {
 	padding: 1rem;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 15px;
 }
-.movie-card-body-container {
+.movies-card-body-container {
 	padding: 0.5rem;
 }
-.movie-card-body-title {
+.movies-card-body-title {
 	font-size: 1rem;
 	font-family: "Tilt Neon", cursive;
 	text-transform: uppercase;
 }
-.class-card-body-rating {
+.movies-card-body-rating {
 	margin-right: 8px;
 }
-.movie-fallback-img {
+.movies-fallback-img {
 	aspect-ratio: 1.8;
 	object-fit: cover;
 }
