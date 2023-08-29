@@ -11,7 +11,7 @@ const ErrorAlert: React.FC<IProps> = ({ error }) => {
 
 	{
 		return (
-			<Container className='error-alert'>
+			<Container>
 				<h2>Something has gone horribly wrong!</h2>
 				{error && <p className='main-colour'>{error}</p>}
 				<div className='nav-back'>

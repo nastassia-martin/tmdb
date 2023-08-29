@@ -11,6 +11,7 @@ import PopularMoviesPage from "./pages/PopularMoviesPage"
 import PersonPage from "./pages/PersonPage"
 import GenresPage from "./pages/GenresPage"
 import GenrePage from "./pages/GenrePage"
+import NotFoundPage from "./pages/NotFoundPage"
 
 const App = () => {
 	return (
@@ -32,6 +33,7 @@ const App = () => {
 					<Route path='/movies/:id' element={<MoviePage />} />
 					{/* /people */}
 					<Route path='/people/:id' element={<PersonPage />} />
+					<Route path='/*' element={<NotFoundPage />} />
 				</Routes>
 			</>
 			<ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
