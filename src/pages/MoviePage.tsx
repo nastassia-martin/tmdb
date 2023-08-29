@@ -1,19 +1,14 @@
-import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
-
-import { getMovieById } from "../services/themoviedbAPI"
 import Movie from "../components/Movie"
 import ErrorAlert from "../components/ErrorAlert"
 import LoadingSpinner from "../components/LoadingSpinner"
+import useMovie from "../hooks/useMovie"
 
 const MoviePage = () => {
 	const { id } = useParams()
 	const movieId = Number(id)
 
-	const { data, error, isLoading } = useQuery({
-		queryFn: () => getMovieById(movieId),
-		queryKey: ["movie", { movie_id: movieId }],
-	})
+	const { data, error, isLoading } = useMovie(movieId)
 	return (
 		<>
 			{isLoading && <LoadingSpinner />}

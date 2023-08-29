@@ -1,12 +1,11 @@
-import { useQuery } from "@tanstack/react-query"
 import { useParams, useSearchParams } from "react-router-dom"
 
-import { getGenreById } from "../services/themoviedbAPI"
 import MoviesGrid from "../components/MoviesGrid"
 import Pagination from "../components/Pagination"
 import LoadingSpinner from "../components/LoadingSpinner"
 import ErrorAlert from "../components/ErrorAlert"
 import NoDataFound from "../components/NoDataFound"
+import useGenre from "../hooks/useGenre"
 
 const GenrePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -16,12 +15,8 @@ const GenrePage = () => {
 	const { id } = useParams()
 	const genreId = Number(id)
 
-	const { data, isLoading, error } = useQuery({
-		queryFn: () => getGenreById(genreId, page),
-		queryKey: ["genre", { genre_id: genreId, page: page }],
-		keepPreviousData: true,
-	})
-	// const genres = queryClient.getQueryData("genres")
+	const { data, isLoading, error } = useGenre(genreId, page)
+
 	return (
 		<>
 			{isLoading && <LoadingSpinner />}

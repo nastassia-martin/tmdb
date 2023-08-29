@@ -1,16 +1,11 @@
-import { useQuery } from "@tanstack/react-query"
-
-import { getTopListedMovies } from "../services/themoviedbAPI"
 import MoviesGrid from "../components/MoviesGrid"
 import LoadingSpinner from "../components/LoadingSpinner"
 import ErrorAlert from "../components/ErrorAlert"
 import NoDataFound from "../components/NoDataFound"
+import useTopMovies from "../hooks/useTopMovies"
 
 const TopMoviesPage = () => {
-	const { data, isLoading, error } = useQuery({
-		queryKey: ["movies", "top-listed-movies"],
-		queryFn: getTopListedMovies,
-	})
+	const { data, isLoading, error } = useTopMovies()
 
 	return (
 		<>

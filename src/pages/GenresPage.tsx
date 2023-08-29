@@ -1,16 +1,11 @@
-import { useQuery } from "@tanstack/react-query"
-
-import { getAllGenres } from "../services/themoviedbAPI"
 import GenreList from "../components/GenreList"
 import ErrorAlert from "../components/ErrorAlert"
 import NoDataFound from "../components/NoDataFound"
 import LoadingSpinner from "../components/LoadingSpinner"
+import useGenres from "../hooks/useGenres"
 
 const GenresPage = () => {
-	const { data, error, isLoading } = useQuery({
-		queryKey: ["genres"],
-		queryFn: getAllGenres,
-	})
+	const { data, error, isLoading } = useGenres()
 
 	return (
 		<>

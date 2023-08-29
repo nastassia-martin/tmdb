@@ -1,16 +1,12 @@
-import { useQuery } from "@tanstack/react-query"
-
-import { getLatestMovies } from "../services/themoviedbAPI"
 import MoviesGrid from "../components/MoviesGrid"
 import ErrorAlert from "../components/ErrorAlert"
 import LoadingSpinner from "../components/LoadingSpinner"
 import NoDataFound from "../components/NoDataFound"
+import useLatestMovies from "../hooks/useLatestMovies"
 
 const LatestMovieReleasesPage = () => {
-	const { data, error, isLoading } = useQuery({
-		queryKey: ["movies", "latest-movies"],
-		queryFn: getLatestMovies,
-	})
+	const { data, error, isLoading } = useLatestMovies()
+
 	return (
 		<>
 			{isLoading && <LoadingSpinner />}

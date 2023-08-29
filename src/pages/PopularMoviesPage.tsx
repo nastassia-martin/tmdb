@@ -1,16 +1,12 @@
-import { useQuery } from "@tanstack/react-query"
-
-import { getPopularMovies } from "../services/themoviedbAPI"
 import MoviesGrid from "../components/MoviesGrid"
 import LoadingSpinner from "../components/LoadingSpinner"
 import ErrorAlert from "../components/ErrorAlert"
 import NoDataFound from "../components/NoDataFound"
+import usePopularMovies from "../hooks/usePopularMovies"
 
 const PopularMoviesPage = () => {
-	const { data, error, isLoading } = useQuery({
-		queryKey: ["movies", "popular-movies"],
-		queryFn: getPopularMovies,
-	})
+	const { data, error, isLoading } = usePopularMovies()
+
 	return (
 		<>
 			{isLoading && <LoadingSpinner />}
