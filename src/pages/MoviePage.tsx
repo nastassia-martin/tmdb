@@ -9,6 +9,7 @@ const MoviePage = () => {
 	const movieId = Number(id)
 
 	const { data, error, isLoading } = useMovie(movieId)
+	console.log(data?.recommendations.results)
 	return (
 		<>
 			{isLoading && <LoadingSpinner />}

@@ -92,9 +92,17 @@ export const getPopularMovies = () => {
  * Get a single movie with credits appended to result
  * @param movie_id
  */
+export const getMovieByIdRec = (movie_id: number) => {
+	return get<SingleMovieData>(`
+	/movie/${movie_id}?append_to_response=credits,recommendations&language=en-US`)
+}
+/**
+ * Get a single movie with credits & recommendatons appended to result
+ * @param movie_id
+ */
 export const getMovieById = (movie_id: number) => {
 	return get<SingleMovieData>(`
-	/movie/${movie_id}?append_to_response=credits&language=en-US`)
+	/movie/${movie_id}?append_to_response=credits,recommendations&language=en-US`)
 }
 /**
  * Get a single peroson with movies appended to result

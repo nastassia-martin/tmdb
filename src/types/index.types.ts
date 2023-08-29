@@ -32,6 +32,7 @@ export type SingleMovieData = GenericMovieResource & {
 	runtime: number
 	tagline: string
 	credits: Credits
+	recommendations: GenericMovieResponse
 }
 export type Generic = {
 	id: number

@@ -6,6 +6,7 @@ import LoadingSpinner from "../components/LoadingSpinner"
 import ErrorAlert from "../components/ErrorAlert"
 import NoDataFound from "../components/NoDataFound"
 import useGenre from "../hooks/useGenre"
+import useGenres from "../hooks/useGenres"
 
 const GenrePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -14,8 +15,13 @@ const GenrePage = () => {
 	const page = Number(searchParams.get("page") || 1)
 	const { id } = useParams()
 	const genreId = Number(id)
-
+	const { data: genres } = useGenres()
 	const { data, isLoading, error } = useGenre(genreId, page)
+
+	// find the genres.id that matches params & pluck out the name
+	// if the name doesn't exist then a default is defined.
+	const title =
+		genres?.genres.find((id) => id.id === genreId)?.name ?? "Browse by genre"
 
 	return (
 		<>
@@ -28,7 +34,7 @@ const GenrePage = () => {
 			{data && data.results.length === 0 && <NoDataFound />}
 			{data && data.results.length > 0 && (
 				<>
-					<MoviesGrid title={"Genre"} data={data} />
+					<MoviesGrid title={title} data={data} />
 					<Pagination
 						page={data.page}
 						data={data}
