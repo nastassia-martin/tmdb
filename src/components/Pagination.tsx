@@ -21,7 +21,7 @@ const Pagination: React.FC<IProps> = ({
 					Previous Page
 				</Button>
 			</div>
-			<div className='page'>
+			<div className='main-colour'>
 				Page {data.page} of {data.total_pages}
 			</div>
 			<div className='next'>
