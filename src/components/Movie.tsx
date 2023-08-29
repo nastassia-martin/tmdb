@@ -66,7 +66,7 @@ const Movie: React.FC<IProps> = ({ data }) => {
 					))}
 				</Card.Body>
 			</Card>
-			<PreviousPage />
+			{/* <PreviousPage /> */}
 		</Container>
 	)
 }
