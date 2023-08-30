@@ -30,12 +30,13 @@ const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 					>
 						{result.backdrop_path === null ? (
 							<Card.Img
-								className='movies-fallback-img'
+								className='movies-fallback-img img-fluid'
 								src={fallback}
 								alt={result.title}
 							/>
 						) : (
 							<Card.Img
+								className='img-fluid'
 								variant='top'
 								src={imageURL + result.backdrop_path}
 								alt={result.title}

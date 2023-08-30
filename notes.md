@@ -8,11 +8,11 @@ G:
 append_to_response=images%2Ccredits
 
 VG:
-[] custom hooks
-[] similar / related films on a single film
+[x] custom hooks
+[x] similar / related films on a single film
+[x] user can choose whether they want to see the popular movies for the day or week
 [] search for films & see which films match the query (with pagination) or if no films match the query
 [] See last 10 films shown &history should survive between sessions
-[] user can choose whether they want to see the popular movies for the day or week
 
 # Routes
 

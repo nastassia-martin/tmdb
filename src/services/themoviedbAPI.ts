@@ -58,7 +58,7 @@ export const getGenreById = (genre_id: number, page: number) => {
 }
 
 /**
- * Get Top Listed	 movies
+ * Get Top Listed movies
  * params used: page, sort_by,
  * @returns Promise
  */
@@ -105,7 +105,7 @@ export const getMovieById = (movie_id: number) => {
 	/movie/${movie_id}?append_to_response=credits,recommendations&language=en-US`)
 }
 /**
- * Get a single peroson with movies appended to result
+ * Get a single person with movies appended to result
  * @param person_id
  */
 export const getPersonById = (person_id: number) => {
@@ -113,12 +113,11 @@ export const getPersonById = (person_id: number) => {
 	/person/${person_id}?append_to_response=credits&language=en-US`)
 }
 /**
- * @todo: 1 set up req to ´´, movie_id, credits, images,
- * @todo: VG set up req to ´´ recommendations
- * @todo: movie res type
- * Get popular movies
- * params used: page, movie_id,
- * append_to_response: credits, images
+ * Get trending movies
+ * @param time_window
  * @returns Promise
  */
-// }
+export const getTrendingMovies = (time_window: string) => {
+	return get<GenericMovieResponse>(`
+	/trending/movie/${time_window}?language=en-US`)
+}

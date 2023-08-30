@@ -20,10 +20,10 @@ const Movie: React.FC<IProps> = ({ data }) => {
 			<h2>{data.title}</h2>
 			<Card className='resource-card-container mb-2'>
 				{data.poster_path === null ? (
-					<Card.Img className='fluid' src={fallback} alt={data.title} />
+					<Card.Img className='img-fluid' src={fallback} alt={data.title} />
 				) : (
 					<Card.Img
-						className='fluid'
+						className='img-fluid'
 						src={imageURL + data.poster_path}
 						alt={data.title}
 					/>
