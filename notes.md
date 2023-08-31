@@ -11,7 +11,7 @@ VG:
 [x] custom hooks
 [x] similar / related films on a single film
 [x] user can choose whether they want to see the popular movies for the day or week
-[] search for films & see which films match the query (with pagination) or if no films match the query
+[x] search for films & see which films match the query (with pagination) or if no films match the query
 [] See last 10 films shown &history should survive between sessions
 
 # Routes

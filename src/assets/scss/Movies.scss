@@ -4,21 +4,40 @@
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 15px;
 }
+.movie-card-anchor {
+	text-decoration: none;
+	min-height: 300px;
+}
+.movie-img-container {
+	width: 100%;
+	overflow: hidden;
+}
 .movies-card-body-container {
 	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	p {
+		margin: 0;
+	}
+	.movies-card-body-year {
+		display: inline-block;
+		margin-left: 50%;
+	}
 }
 .movies-card-body-title {
 	font-size: 1rem;
 	font-family: "Tilt Neon", cursive;
 	text-transform: uppercase;
 }
-.movies-card-body-rating {
-	margin-right: 8px;
-}
+
 .movies-fallback-img {
 	aspect-ratio: 1.8;
 	object-fit: cover;
 }
-.movie-card-anchor {
-	text-decoration: none;
+
+@media (min-width: 500px) {
+	.movies-container {
+		grid-template-columns: repeat(4, 1fr);
+	}
 }

@@ -53,6 +53,7 @@ const Movie: React.FC<IProps> = ({ data }) => {
 						<span>
 							<FontAwesomeIcon icon={faStar} style={{ color: "#ff40ff" }} />
 						</span>
+						<span>{data.release_date}</span>
 					</Card.Text>
 					{data.genres.map((genre) => (
 						<Card.Text
