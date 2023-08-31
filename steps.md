@@ -21,6 +21,6 @@ Todo 29/8
 [x] Make sure each page has an error & loading state
 [x] Create 404 page  
 [x] You `might also like` component to attach to /movie/id page
-[] Search component for movie here:https://developer.themoviedb.org/reference/search-movie
+[x] Search component for movie here:https://developer.themoviedb.org/reference/search-movie
 https://api.themoviedb.org/3/search/movie (to test false result `does this exists i don't thnk so`)
 [x] https://developer.themoviedb.org/reference/trending-movies

@@ -121,3 +121,9 @@ export const getTrendingMovies = (time_window: string) => {
 	return get<GenericMovieResponse>(`
 	/trending/movie/${time_window}?language=en-US`)
 }
+
+export const searchMovie = (query: string, page = 1) => {
+	return get<GenericMovieResponse>(
+		`search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`
+	)
+}

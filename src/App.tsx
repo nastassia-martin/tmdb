@@ -12,6 +12,7 @@ import PersonPage from "./pages/PersonPage"
 import GenresPage from "./pages/GenresPage"
 import GenrePage from "./pages/GenrePage"
 import NotFoundPage from "./pages/NotFoundPage"
+import SearchPage from "./pages/SearchPage"
 
 const App = () => {
 	return (
@@ -30,6 +31,7 @@ const App = () => {
 					<Route path='/movies/popular' element={<PopularMoviesPage />} />
 					<Route path='/movies/latest' element={<LatestMovieReleasesPage />} />
 					<Route path='/movies/top-listed' element={<TopMoviesPage />} />
+					<Route path='/movies/search' element={<SearchPage />} />
 					<Route path='/movies/:id' element={<MoviePage />} />
 					{/* /people */}
 					<Route path='/people/:id' element={<PersonPage />} />
