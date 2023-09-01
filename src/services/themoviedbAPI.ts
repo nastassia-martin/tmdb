@@ -14,7 +14,6 @@ import {
 
 const BASE_URL = "https://api.themoviedb.org/3"
 const VITE_APP_ACCESS_TOKEN = import.meta.env.VITE_APP_ACCESS_TOKEN
-const FAKE_DELAY = 1500
 
 const instance = axios.create({
 	baseURL: BASE_URL,
@@ -34,9 +33,6 @@ const instance = axios.create({
 const get = async <T>(endpoint: string) => {
 	const response = await instance.get<T>(endpoint)
 
-	//Simulate a delay
-	!!FAKE_DELAY && (await new Promise((r) => setTimeout(r, FAKE_DELAY)))
-
 	return response.data
 }
 
@@ -49,6 +45,8 @@ export const getAllGenres = () => {
 }
 /**
  * Get movies of one genre
+ * @param genre_id genre id
+ * @param page number of search
  */
 export const getGenreById = (genre_id: number, page: number) => {
 	return get<GenericMovieResponse>(
@@ -58,14 +56,11 @@ export const getGenreById = (genre_id: number, page: number) => {
 }
 
 /**
- * Get Top Listed movies
- * params used: page, sort_by,
- * @returns Promise
+ * Get Top Rated movies
  */
 export const getTopListedMovies = () => {
 	return get<GenericMovieResponse>(
-		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
-		&sort_by=vote_average.desc&vote_count.gte=10000`
+		`/movie/top_rated?include_adult=false?language=en-US&page=1`
 	)
 }
 /**
@@ -74,36 +69,27 @@ export const getTopListedMovies = () => {
  */
 export const getLatestMovies = () => {
 	return get<GenericMovieResponse>(
-		`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`
+		`movie/now_playing?include_adult=false?language=en-US&page=1`
 	)
 }
 /**
  * Get popular movies
- * params used: page, sort_by,
  * @returns Promise
  */
 export const getPopularMovies = () => {
 	return get<GenericMovieResponse>(
-		`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1
-		&sort_by=popularity.desc`
+		`/movie/popular?include_adult=false?language=en-US&page=1`
 	)
 }
 /**
- * Get a single movie with credits appended to result
+ * Get a single movie with credits & recommendatons appended to result
  * @param movie_id
  */
 export const getMovieByIdRec = (movie_id: number) => {
 	return get<SingleMovieData>(`
 	/movie/${movie_id}?append_to_response=credits,recommendations&language=en-US`)
 }
-/**
- * Get a single movie with credits & recommendatons appended to result
- * @param movie_id
- */
-export const getMovieById = (movie_id: number) => {
-	return get<SingleMovieData>(`
-	/movie/${movie_id}?append_to_response=credits,recommendations&language=en-US`)
-}
+
 /**
  * Get a single person with movies appended to result
  * @param person_id
@@ -114,14 +100,17 @@ export const getPersonById = (person_id: number) => {
 }
 /**
  * Get trending movies
- * @param time_window
- * @returns Promise
+ * @param time_window search trending by day or week
  */
 export const getTrendingMovies = (time_window: string) => {
 	return get<GenericMovieResponse>(`
 	/trending/movie/${time_window}?language=en-US`)
 }
-
+/**
+ * Search for a movie by keyword
+ * @param query search to use
+ * @param page Page number of result
+ */
 export const searchMovie = (query: string, page = 1) => {
 	return get<GenericMovieResponse>(
 		`search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`
