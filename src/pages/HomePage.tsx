@@ -1,4 +1,3 @@
-import { useState } from "react"
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col"
@@ -10,17 +9,15 @@ import LoadingSpinner from "../components/LoadingSpinner"
 import ErrorAlert from "../components/ErrorAlert"
 
 const HomePage = () => {
-	//const [timeWindow, setTimeWindow] = useState("week")
+	//use searchParams obj to read key/value `timeWindow: 'week'`
 	const [searchParams, setSearchParams] = useSearchParams({
 		timeWindow: "week",
 	})
-	const timeWindow = searchParams.get("timeWindow")
-	const { data, error, isLoading } = useTrending(timeWindow!)
-	console.log(timeWindow)
+	//get value of `timeWindow` or default value `week`
+	//in case user hits HomeButton whilst on HomePage
+	const timeWindow = searchParams.get("timeWindow") || "week"
 
-	for (const value of searchParams.values()) {
-		console.log(value)
-	}
+	const { data, error, isLoading } = useTrending(timeWindow)
 
 	return (
 		<>
