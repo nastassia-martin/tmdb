@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 import Container from "react-bootstrap/Container"
 import ListGroup from "react-bootstrap/ListGroup"
-import { GenresData } from "../types/index.types"
+import { GenresData } from "../types/genres.types"
 import PreviousPage from "./PreviousPage"
 
 interface IProps {

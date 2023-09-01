@@ -9,7 +9,7 @@ interface IProps {
 }
 
 import fallback from "../assets/images/popcorn.jpg"
-import { PersonData } from "../types/index.types"
+import { PersonData } from "../types/person.types"
 import PreviousPage from "./PreviousPage"
 const Person: React.FC<IProps> = ({ data }) => {
 	const imageURL = "https://image.tmdb.org/t/p/w300"

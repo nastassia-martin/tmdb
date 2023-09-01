@@ -7,7 +7,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons"
 import fallback from "../assets/images/popcorn.jpg"
 import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card"
-import { GenericMovieResponse } from "../types/index.types"
+import { GenericMovieResponse } from "../types/movies.types"
 
 // import PreviousPage from "./PreviousPage"
 

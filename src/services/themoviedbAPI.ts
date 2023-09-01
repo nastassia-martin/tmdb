@@ -5,12 +5,9 @@
  *
  */
 import axios from "axios"
-import {
-	GenericMovieResponse,
-	SingleMovieData,
-	PersonData,
-	GenresData,
-} from "../types/index.types"
+import { GenresData } from "../types/genres.types"
+import { GenericMovieResponse, SingleMovieData } from "../types/movies.types"
+import { PersonData } from "../types/person.types"
 
 const BASE_URL = "https://api.themoviedb.org/3"
 const VITE_APP_ACCESS_TOKEN = import.meta.env.VITE_APP_ACCESS_TOKEN

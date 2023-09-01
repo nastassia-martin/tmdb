@@ -1,6 +1,6 @@
 import React from "react"
 import Button from "react-bootstrap/Button"
-import { GenericMovieResponse } from "../types/index.types"
+import { GenericMovieResponse } from "../types/movies.types"
 interface IProps {
 	page: number
 	data: GenericMovieResponse

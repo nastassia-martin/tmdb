@@ -7,7 +7,7 @@ import fallback from "../assets/images/popcorn.jpg"
 import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card"
 
-import { SingleMovieData } from "../types/index.types"
+import { SingleMovieData } from "../types/movies.types"
 
 interface IProps {
 	data: SingleMovieData
