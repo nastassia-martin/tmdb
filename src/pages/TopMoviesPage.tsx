@@ -6,7 +6,7 @@ import useTopMovies from "../hooks/useTopMovies"
 import PreviousPage from "../components/PreviousPage"
 
 const TopMoviesPage = () => {
-	const { data, isLoading, error } = useTopMovies()
+	const { data, isLoading, error, status } = useTopMovies()
 
 	return (
 		<>
@@ -18,7 +18,7 @@ const TopMoviesPage = () => {
 			{/* fetch successful, but no data returned */}
 			{data && data.results.length === 0 && <NoDataFound />}
 			{data && <MoviesGrid title={"Top Movies"} data={data} />}
-			<PreviousPage />
+			{status === ("success" || "error") && <PreviousPage />}
 		</>
 	)
 }

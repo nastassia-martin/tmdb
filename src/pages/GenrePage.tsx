@@ -7,6 +7,7 @@ import ErrorAlert from "../components/ErrorAlert"
 import NoDataFound from "../components/NoDataFound"
 import useGenre from "../hooks/useGenre"
 import useGenres from "../hooks/useGenres"
+import PreviousPage from "../components/PreviousPage"
 
 const GenrePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -16,7 +17,7 @@ const GenrePage = () => {
 	const { id } = useParams()
 	const genreId = Number(id)
 	const { data: genres } = useGenres()
-	const { data, isLoading, error } = useGenre(genreId, page)
+	const { data, isLoading, error, status } = useGenre(genreId, page)
 
 	// find the genres.id that matches params & pluck out the name
 	// if the name doesn't exist then a default is defined.
@@ -43,6 +44,7 @@ const GenrePage = () => {
 					/>
 				</>
 			)}
+			{status === ("success" || "error") && <PreviousPage />}
 		</>
 	)
 }

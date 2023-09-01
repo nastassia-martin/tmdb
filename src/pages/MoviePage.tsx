@@ -10,7 +10,7 @@ const MoviePage = () => {
 	const { id } = useParams()
 	const movieId = Number(id)
 
-	const { data, error, isLoading } = useMovie(movieId)
+	const { data, error, isLoading, status } = useMovie(movieId)
 	return (
 		<>
 			{isLoading && <LoadingSpinner />}
@@ -20,7 +20,7 @@ const MoviePage = () => {
 			)}
 			{data && <Movie data={data} />}
 			{data && <MoviesGrid data={data.recommendations} title={"Recommended"} />}
-			<PreviousPage />
+			{status === ("success" || "error") && <PreviousPage />}
 		</>
 	)
 }

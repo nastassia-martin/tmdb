@@ -18,7 +18,7 @@ const PopularMoviesPage = () => {
 			{/* fetch successful, but no data returned */}
 			{data && data.results.length === 0 && <NoDataFound />}
 			{data && <MoviesGrid title={"Popular Releases"} data={data} />}
-			<PreviousPage />
+			{status === ("success" || "error") && <PreviousPage />}
 		</>
 	)
 }
