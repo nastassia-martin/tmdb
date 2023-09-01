@@ -37,7 +37,6 @@ const SearchPage = () => {
 	return (
 		<div>
 			<>
-				<h1>🔎🔦👀</h1>
 				<Form className='mb-4' onSubmit={handleSubmit}>
 					<Form.Group className='mb-3' controlId='searchQuery'>
 						<Form.Label>Search Query</Form.Label>

@@ -13,14 +13,14 @@ import { GenericMovieResponse } from "../types/index.types"
 
 interface IProps {
 	data: GenericMovieResponse
-	title: string
+	title: string | null
 }
 const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 	const imageURL = "https://image.tmdb.org/t/p/w300"
-	// const year = new Date(data.results.ap)
 	return (
 		<>
-			<h2 className='container'>{title}</h2>
+			{title && <h2 className='container'>{title}</h2>}
+
 			<Container className='movies-container'>
 				{data.results.map((result) => (
 					<Card
@@ -59,7 +59,7 @@ const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 									<FontAwesomeIcon icon={faStar} style={{ color: "#ff40ff" }} />
 								</span>
 								<span className='movies-card-body-year'>
-									{result.release_date.slice(0, 4)}
+									&nbsp;|&nbsp;{result.release_date.slice(0, 4)}
 								</span>
 							</p>
 						</Card.Body>

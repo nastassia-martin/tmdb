@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card"
 
 import { SingleMovieData } from "../types/index.types"
-import PreviousPage from "./PreviousPage"
 
 interface IProps {
 	data: SingleMovieData
@@ -28,7 +27,7 @@ const Movie: React.FC<IProps> = ({ data }) => {
 						alt={data.title}
 					/>
 				)}
-				<Card.Body>
+				<Card.Body className='resource-main-card-body'>
 					<Card.Text className='resource-card-body'>{data.overview}</Card.Text>
 
 					<Card.Body className='resource-card-body-cast'>
@@ -44,30 +43,26 @@ const Movie: React.FC<IProps> = ({ data }) => {
 							</Card.Text>
 						))}
 					</Card.Body>
-
-					<Card.Text className='resource-card-body'>
-						Runtime: {data.runtime} minutes
-					</Card.Text>
-					<Card.Text className='resource-card-body'>
-						Communnity rating:&nbsp;{data.vote_average.toFixed(1)}&nbsp;
-						<span>
-							<FontAwesomeIcon icon={faStar} style={{ color: "#ff40ff" }} />
-						</span>
-						<span>{data.release_date}</span>
-					</Card.Text>
-					{data.genres.map((genre) => (
-						<Card.Text
-							className='resource-card-body'
-							key={genre.id}
-							// as={Link}
-							// to={`/genre/${genre.id`}
-						>
-							{genre.name}
+					<Card.Body className='resource-card-body-stats'>
+						<Card.Text className='resource-card-body-list'>
+							Runtime: {data.runtime} minutes &nbsp;|
 						</Card.Text>
-					))}
+						<Card.Text className='resource-card-body'>
+							&nbsp;{data.vote_average.toFixed(1)}&nbsp;
+							<span>
+								<FontAwesomeIcon icon={faStar} style={{ color: "#ff40ff" }} />
+							</span>
+						</Card.Text>
+					</Card.Body>
+					<Card.Body className='resource-card-body-stats'>
+						{data.genres.map((genre) => (
+							<Card.Text className='resource-card-body' key={genre.id}>
+								{genre.name}
+							</Card.Text>
+						))}
+					</Card.Body>
 				</Card.Body>
 			</Card>
-			{/* <PreviousPage /> */}
 		</Container>
 	)
 }

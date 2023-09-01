@@ -4,13 +4,13 @@ import ErrorAlert from "../components/ErrorAlert"
 import LoadingSpinner from "../components/LoadingSpinner"
 import useMovie from "../hooks/useMovie"
 import MoviesGrid from "../components/MoviesGrid"
+import PreviousPage from "../components/PreviousPage"
 
 const MoviePage = () => {
 	const { id } = useParams()
 	const movieId = Number(id)
 
 	const { data, error, isLoading } = useMovie(movieId)
-	console.log(data?.recommendations.results)
 	return (
 		<>
 			{isLoading && <LoadingSpinner />}
@@ -20,6 +20,7 @@ const MoviePage = () => {
 			)}
 			{data && <Movie data={data} />}
 			{data && <MoviesGrid data={data.recommendations} title={"Recommended"} />}
+			<PreviousPage />
 		</>
 	)
 }

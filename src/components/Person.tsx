@@ -18,18 +18,15 @@ const Person: React.FC<IProps> = ({ data }) => {
 			<h2>{data.name}</h2>
 
 			<Card className='resource-card-container person mb-2'>
-				<Container className='img-container'>
-					{data.profile_path === null ? (
-						<Card.Img src={fallback} alt={data.name} />
-					) : (
-						<Card.Img
-							className='img-fluid'
-							src={imageURL + data.profile_path}
-							alt={data.name}
-						/>
-					)}
-				</Container>
-
+				{data.profile_path === null ? (
+					<Card.Img src={fallback} alt={data.name} />
+				) : (
+					<Card.Img
+						className='img-fluid'
+						src={imageURL + data.profile_path}
+						alt={data.name}
+					/>
+				)}
 				<Card.Body>
 					{data.biography === "" ? (
 						<Card.Text>Known for: {data.known_for_department}</Card.Text>

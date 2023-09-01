@@ -1,10 +1,8 @@
-.resource-container {
-	height: 100vh;
-}
 .resource-card-container {
 	display: flex;
 	flex-direction: column;
 	border: none;
+	width: 100%;
 }
 .resource-card-title {
 	font-family: "Tilt Neon", cursive;
@@ -23,6 +21,16 @@
 .resource-card-body-cast p {
 	margin: 0;
 	align-self: center;
+}
+.resource-card-body-stats {
+	padding: 0;
+	display: flex;
+	flex-flow: wrap;
+	justify-content: flex-start;
+	gap: 5px;
+}
+#app > div.p-3.resource-container.container > div > div > div:nth-child(4) {
+	gap: 1rem;
 }
 .anchor {
 	margin-top: 0.5rem;
@@ -43,5 +51,25 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+	}
+}
+@media (min-width: 900px) {
+	.resource-card-container {
+		max-width: 800px;
+		margin: auto;
+		.resource-main-card-body {
+			display: flex;
+			flex-direction: column;
+			> * {
+				margin: 0;
+			}
+		}
+		.resource-card-body-stats {
+			max-height: fit-content;
+		}
+		.resource-card-body-stats > * {
+			margin: 0;
+			max-height: 2rem;
+		}
 	}
 }

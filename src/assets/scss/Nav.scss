@@ -2,7 +2,9 @@
 	background-color: black;
 	border-bottom: 1px solid white;
 }
-.nav {
+.nav-link,
+nav,
+.navbar-brand {
 	color: fuchsia;
 	font-family: "Tilt Neon", cursive;
 	text-transform: uppercase;
@@ -14,4 +16,9 @@
 .nav-link:hover,
 .nav:hover {
 	color: white;
+}
+.navbar-nav .nav-link.active,
+.nav .navbar-brand,
+.navbar-brand:focus {
+	color: fuchsia;
 }
