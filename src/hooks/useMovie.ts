@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
-import { getMovieById } from "../services/themoviedbAPI"
+import { getMovieByIdRec } from "../services/themoviedbAPI"
 
 const useMovie = (movieId: number) => {
 	return useQuery({
-		queryFn: () => getMovieById(movieId),
+		queryFn: () => getMovieByIdRec(movieId),
 		queryKey: ["movie", { movie_id: movieId }],
 	})
 }

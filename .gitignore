@@ -29,3 +29,5 @@ dist-ssr
 
 # except for README.md file
 !README.md
+# Local Netlify folder
+.netlify
