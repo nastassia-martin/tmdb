@@ -1,6 +1,4 @@
 @import "bootstrap/scss/bootstrap";
-// font-family: "Lato", sans-serif;
-// font-family: "Tilt Neon", cursive;
 
 body {
 	background-color: black;
@@ -48,6 +46,12 @@ h2 {
 	* {
 		font-family: "Lato", sans-serif;
 	}
+}
+.btn,
+.form-button,
+.btn:disabled {
+	background-color: fuchsia;
+	border-color: fuchsia;
 }
 @import "./HomePage.scss";
 @import "./Nav.scss";

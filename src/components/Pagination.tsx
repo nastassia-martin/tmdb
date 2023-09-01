@@ -26,7 +26,9 @@ const Pagination: React.FC<IProps> = ({
 			</div>
 			<div className='next'>
 				<Button
-					disabled={page === data.total_pages}
+					// api does not fetch beyond page 500,
+					// disable if the page is equal to 500 or if it is equal to the total number of pages.
+					disabled={page === data.total_pages || page === 500}
 					onClick={onNextPage}
 					variant='light'
 				>

@@ -80,18 +80,10 @@ const HomePage = () => {
 						trending movies: {timeWindow === "day" ? "today" : "This week"}
 					</h2>
 					<Container className='button-container'>
-						<Button
-							onClick={() => setTimeWindow("day")}
-							className='pink'
-							variant='dark'
-						>
+						<Button onClick={() => setTimeWindow("day")} variant='dark'>
 							Trending today
 						</Button>
-						<Button
-							onClick={() => setTimeWindow("week")}
-							className='pink'
-							variant='dark'
-						>
+						<Button onClick={() => setTimeWindow("week")} variant='dark'>
 							Trending this week
 						</Button>
 					</Container>
