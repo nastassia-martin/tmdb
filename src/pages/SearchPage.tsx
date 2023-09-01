@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { useQuery } from "@tanstack/react-query"
-import { searchMovie } from "../services/themoviedbAPI"
+
 import Alert from "react-bootstrap/Alert"
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 import { useSearchParams } from "react-router-dom"
 import MoviesGrid from "../components/MoviesGrid"
 import Pagination from "../components/Pagination"
+import useSearch from "../hooks/useSearch"
 
 const SearchPage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -16,13 +16,8 @@ const SearchPage = () => {
 	const query = searchParams.get("query") ?? ""
 	const page = Number(searchParams.get("page") || 1)
 	const [searchInput, setSearchInput] = useState(query ?? "")
-	const { data, isError } = useQuery({
-		queryFn: () => searchMovie(query, page),
-		queryKey: ["query", { query: query, page: page }],
-		enabled: !!query,
-		keepPreviousData: true,
-	})
 
+	const { data, isError, isLoading } = useSearch(query, page)
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
 
