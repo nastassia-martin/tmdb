@@ -3,21 +3,31 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import useTrending from "../hooks/useTrending"
 import MoviesGrid from "../components/MoviesGrid"
 import LoadingSpinner from "../components/LoadingSpinner"
 import ErrorAlert from "../components/ErrorAlert"
 
 const HomePage = () => {
-	const [timeWindow, setTimeWindow] = useState("week")
-	const { data, error, isLoading } = useTrending(timeWindow)
+	//const [timeWindow, setTimeWindow] = useState("week")
+	const [searchParams, setSearchParams] = useSearchParams({
+		timeWindow: "week",
+	})
+	const timeWindow = searchParams.get("timeWindow")
+	const { data, error, isLoading } = useTrending(timeWindow!)
+	console.log(timeWindow)
+
+	for (const value of searchParams.values()) {
+		console.log(value)
+	}
 
 	return (
 		<>
 			{error && (
 				<ErrorAlert error={error instanceof Error ? error.message : null} />
 			)}
+			{isLoading && <LoadingSpinner />}
 			<Container>
 				<h1>CODE HUNTER 2023</h1>
 				<Container className='home-container'>
@@ -74,16 +84,22 @@ const HomePage = () => {
 						</Card.Body>
 					</Card>
 				</Container>
-				{isLoading && <LoadingSpinner />}
+
 				<Col>
 					<h2>
 						trending movies: {timeWindow === "day" ? "today" : "This week"}
 					</h2>
 					<Container className='button-container'>
-						<Button onClick={() => setTimeWindow("day")} variant='dark'>
+						<Button
+							onClick={() => setSearchParams({ timeWindow: "day" })}
+							variant='dark'
+						>
 							Trending today
 						</Button>
-						<Button onClick={() => setTimeWindow("week")} variant='dark'>
+						<Button
+							onClick={() => setSearchParams({ timeWindow: "week" })}
+							variant='dark'
+						>
 							Trending this week
 						</Button>
 					</Container>
