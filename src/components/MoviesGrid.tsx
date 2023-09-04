@@ -7,8 +7,8 @@ import { faStar } from "@fortawesome/free-solid-svg-icons"
 import fallback from "../assets/images/popcorn.jpg"
 import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card"
-import { GenericMovieResponse } from "../types/movies.types"
-
+import { GenericMovieData, GenericMovieResponse } from "../types/movies.types"
+import useLocalStorage from "../hooks/useLocalStorage"
 // import PreviousPage from "./PreviousPage"
 
 interface IProps {
@@ -16,6 +16,11 @@ interface IProps {
 	title: string | null
 }
 const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
+	const [clickedMovie, setClickedMovie] = useLocalStorage("movie", "")
+
+	const handleClick = (result: GenericMovieData) => {
+		setClickedMovie(JSON.stringify(result))
+	}
 	const imageURL = "https://image.tmdb.org/t/p/w300"
 	return (
 		<>
@@ -28,6 +33,7 @@ const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 						as={Link}
 						to={`/movies/${result.id}`}
 						key={result.id}
+						onClick={() => handleClick(result)}
 					>
 						<div className='movie-img-container'>
 							{result.poster_path === null ? (
