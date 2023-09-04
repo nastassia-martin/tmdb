@@ -4,7 +4,7 @@ const useLocalStorage = <T>(key: string, defaultValue: T) => {
 	const [storedValue, setStoredValue] = useState<T>(() => {
 		// get value from localStorage and parse it from JSON
 		const value = window.localStorage.getItem(key)
-
+		// return that value and parse, if not set to default value
 		return value ? JSON.parse(value) : defaultValue
 	})
 

@@ -9,18 +9,27 @@ import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card"
 import { GenericMovieData, GenericMovieResponse } from "../types/movies.types"
 import useLocalStorage from "../hooks/useLocalStorage"
-// import PreviousPage from "./PreviousPage"
 
 interface IProps {
 	data: GenericMovieResponse
 	title: string | null
 }
 const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
-	const [clickedMovie, setClickedMovie] = useLocalStorage("movie", "")
+	const [localStorageMovies, setLocalStorageMovies] = useLocalStorage<
+		GenericMovieData[]
+	>("movie", [])
 
-	const handleClick = (result: GenericMovieData) => {
-		setClickedMovie(JSON.stringify(result))
+	const handleClick = (clickedMovie: GenericMovieData) => {
+		// check if clicked movie already exists in localStorage movies arr
+		if (!localStorageMovies.some((movie) => movie.id === clickedMovie.id)) {
+			// if it doesn't exists, then take in all prev movies & add this to list
+			const updatedMoviesList = [...localStorageMovies, clickedMovie]
+
+			// seperate this out so that you are not directly mutating state
+			setLocalStorageMovies(updatedMoviesList)
+		}
 	}
+
 	const imageURL = "https://image.tmdb.org/t/p/w300"
 	return (
 		<>
