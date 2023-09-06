@@ -20,12 +20,17 @@ const MoviesGrid: React.FC<IProps> = ({ data, title }) => {
 	>("movie", [])
 
 	const handleClick = (clickedMovie: GenericMovieData) => {
-		// check if clicked movie already exists in localStorage movies arr
+		// if there are more than 10 items in LS remove the least recently clicked item
 		if (!localStorageMovies.some((movie) => movie.id === clickedMovie.id)) {
-			// if it doesn't exists, then take in all prev movies & add this to list
-			const updatedMoviesList = [...localStorageMovies, clickedMovie]
+			let updatedMoviesList = [...localStorageMovies, clickedMovie]
 
-			// seperate this out so that you are not directly mutating state
+			// Check if the updated list exceeds 10 items
+			if (updatedMoviesList.length > 10) {
+				// If it does, remove the oldest item (the first item)
+				updatedMoviesList = updatedMoviesList.slice(1)
+			}
+
+			// Update the localStorage with the updated list
 			setLocalStorageMovies(updatedMoviesList)
 		}
 	}

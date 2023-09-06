@@ -7,6 +7,7 @@ import useTrending from "../hooks/useTrending"
 import MoviesGrid from "../components/MoviesGrid"
 import LoadingSpinner from "../components/LoadingSpinner"
 import ErrorAlert from "../components/ErrorAlert"
+import LocalStorageGrid from "../components/LocalStorageGrid"
 import useLocalStorage from "../hooks/useLocalStorage"
 import { GenericMovieData } from "../types/movies.types"
 
@@ -20,23 +21,8 @@ const HomePage = () => {
 	const timeWindow = searchParams.get("timeWindow") || "week"
 
 	const { data, error, isLoading } = useTrending(timeWindow)
-
-	// const [localStorageMovies, setLocalStorageMovies] = useState<
-	// 	GenericMovieData[]
-	// >(window.localStorage.getItem("movie"))
-	// if (localStorageMovies) {
-	// 	localStorageMovies.map((movie) => {
-	// 		console.log(movie.title)
-	// 	})
-	// }
-
 	const [storedValue] = useLocalStorage<GenericMovieData[]>("movie", [])
-	if (storedValue) {
-		storedValue.map((movie) => {
-			console.log(movie.title)
-		})
-	}
-	//console.log(storedValue)
+
 	return (
 		<>
 			{error && (
@@ -79,9 +65,7 @@ const HomePage = () => {
 						</Card.Body>
 					</Card>
 				</Container>
-				<div>
-					{storedValue && storedValue.map((movie) => <p>{movie.title}</p>)}
-				</div>
+				{storedValue.length > 0 && <LocalStorageGrid />}
 				<Col>
 					<h2>
 						trending movies: {timeWindow === "day" ? "today" : "This week"}
